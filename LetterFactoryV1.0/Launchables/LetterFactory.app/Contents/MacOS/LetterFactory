@@ -1,0 +1,9 @@
+#!/bin/bash
+DIR="$(cd "$(dirname "$0")/.." && pwd)"
+JH="$(/usr/libexec/java_home 2>/dev/null)"
+JAVA_BIN="$JH/bin/java"
+if [ ! -x "$JAVA_BIN" ]; then
+  JAVA_BIN="$(command -v java)"
+fi
+cd "$HOME"
+exec "$JAVA_BIN" -jar "$DIR/Resources/LetterFactory.jar" "$@"

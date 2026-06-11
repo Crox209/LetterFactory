@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.user</groupId>
+  <artifactId>letterfactory</artifactId>
+  <version>1.0.0</version>
+  <name>LetterFactory</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.release>21</maven.compiler.release>
+
+    <javafx.version>22.0.2</javafx.version>
+    <poi.version>5.5.1</poi.version>
+    <pdfbox.version>3.0.7</pdfbox.version>
+    <docx4j.version>11.5.12</docx4j.version>
+    <!-- Host platform for compile only -->
+    <javafx.platform>mac-aarch64</javafx.platform>
+  </properties>
+
+  <dependencies>
+    <!-- Compile-time JavaFX (host); runtime loads correct platform from embedded jars -->
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-controls</artifactId>
+      <version>${javafx.version}</version>
+      <classifier>${javafx.platform}</classifier>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-graphics</artifactId>
+      <version>${javafx.version}</version>
+      <classifier>${javafx.platform}</classifier>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-base</artifactId>
+      <version>${javafx.version}</version>
+      <classifier>${javafx.platform}</classifier>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- Embedded at package time for universal jar (all platforms) -->
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-controls</artifactId>
+      <version>${javafx.version}</version>
+      <classifier>win</classifier>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-graphics</artifactId>
+      <version>${javafx.version}</version>
+      <classifier>win</classifier>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-base</artifactId>
+      <version>${javafx.version}</version>
+      <classifier>win</classifier>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-controls</artifactId>
+      <version>${javafx.version}</version>
+      <classifier>mac</classifier>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-graphics</artifactId>
+      <version>${javafx.version}</version>
+      <classifier>mac</classifier>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-base</artifactId>
+      <version>${javafx.version}</version>
+      <classifier>mac</classifier>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-controls</artifactId>
+      <version>${javafx.version}</version>
+      <classifier>mac-aarch64</classifier>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-graphics</artifactId>
+      <version>${javafx.version}</version>
+      <classifier>mac-aarch64</classifier>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-base</artifactId>
+      <version>${javafx.version}</version>
+      <classifier>mac-aarch64</classifier>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-controls</artifactId>
+      <version>${javafx.version}</version>
+      <classifier>linux</classifier>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-graphics</artifactId>
+      <version>${javafx.version}</version>
+      <classifier>linux</classifier>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-base</artifactId>
+      <version>${javafx.version}</version>
+      <classifier>linux</classifier>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-controls</artifactId>
+      <version>${javafx.version}</version>
+      <classifier>linux-aarch64</classifier>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-graphics</artifactId>
+      <version>${javafx.version}</version>
+      <classifier>linux-aarch64</classifier>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-base</artifactId>
+      <version>${javafx.version}</version>
+      <classifier>linux-aarch64</classifier>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
+
+    <!-- DOCX + XLSX -->
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-ooxml</artifactId>
+      <version>${poi.version}</version>
+    </dependency>
+
+    <!-- PDF export/merge helpers -->
+    <dependency>
+      <groupId>org.apache.pdfbox</groupId>
+      <artifactId>pdfbox</artifactId>
+      <version>${pdfbox.version}</version>
+    </dependency>
+
+    <!-- DOCX -> PDF conversion via XSL-FO (Apache FOP) -->
+    <dependency>
+      <groupId>org.docx4j</groupId>
+      <artifactId>docx4j-core</artifactId>
+      <version>${docx4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.docx4j</groupId>
+      <artifactId>docx4j-export-fo</artifactId>
+      <version>${docx4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.docx4j</groupId>
+      <artifactId>docx4j-JAXB-ReferenceImpl</artifactId>
+      <version>${docx4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>fop</artifactId>
+      <version>2.10</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- Copy each platform's JavaFX jars into resources for universal runtime loading -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.8.1</version>
+        <executions>
+          <execution>
+            <id>copy-javafx-win</id>
+            <phase>prepare-package</phase>
+            <goals><goal>copy</goal></goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>org.openjfx</groupId><artifactId>javafx-base</artifactId><version>${javafx.version}</version><classifier>win</classifier>
+                  <outputDirectory>${project.build.outputDirectory}/javafx-libs/win</outputDirectory><destFileName>javafx-base.jar</destFileName>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>org.openjfx</groupId><artifactId>javafx-graphics</artifactId><version>${javafx.version}</version><classifier>win</classifier>
+                  <outputDirectory>${project.build.outputDirectory}/javafx-libs/win</outputDirectory><destFileName>javafx-graphics.jar</destFileName>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>org.openjfx</groupId><artifactId>javafx-controls</artifactId><version>${javafx.version}</version><classifier>win</classifier>
+                  <outputDirectory>${project.build.outputDirectory}/javafx-libs/win</outputDirectory><destFileName>javafx-controls.jar</destFileName>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+          <execution>
+            <id>copy-javafx-mac</id>
+            <phase>prepare-package</phase>
+            <goals><goal>copy</goal></goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>org.openjfx</groupId><artifactId>javafx-base</artifactId><version>${javafx.version}</version><classifier>mac</classifier>
+                  <outputDirectory>${project.build.outputDirectory}/javafx-libs/mac</outputDirectory><destFileName>javafx-base.jar</destFileName>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>org.openjfx</groupId><artifactId>javafx-graphics</artifactId><version>${javafx.version}</version><classifier>mac</classifier>
+                  <outputDirectory>${project.build.outputDirectory}/javafx-libs/mac</outputDirectory><destFileName>javafx-graphics.jar</destFileName>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>org.openjfx</groupId><artifactId>javafx-controls</artifactId><version>${javafx.version}</version><classifier>mac</classifier>
+                  <outputDirectory>${project.build.outputDirectory}/javafx-libs/mac</outputDirectory><destFileName>javafx-controls.jar</destFileName>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+          <execution>
+            <id>copy-javafx-mac-aarch64</id>
+            <phase>prepare-package</phase>
+            <goals><goal>copy</goal></goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>org.openjfx</groupId><artifactId>javafx-base</artifactId><version>${javafx.version}</version><classifier>mac-aarch64</classifier>
+                  <outputDirectory>${project.build.outputDirectory}/javafx-libs/mac-aarch64</outputDirectory><destFileName>javafx-base.jar</destFileName>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>org.openjfx</groupId><artifactId>javafx-graphics</artifactId><version>${javafx.version}</version><classifier>mac-aarch64</classifier>
+                  <outputDirectory>${project.build.outputDirectory}/javafx-libs/mac-aarch64</outputDirectory><destFileName>javafx-graphics.jar</destFileName>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>org.openjfx</groupId><artifactId>javafx-controls</artifactId><version>${javafx.version}</version><classifier>mac-aarch64</classifier>
+                  <outputDirectory>${project.build.outputDirectory}/javafx-libs/mac-aarch64</outputDirectory><destFileName>javafx-controls.jar</destFileName>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+          <execution>
+            <id>copy-javafx-linux</id>
+            <phase>prepare-package</phase>
+            <goals><goal>copy</goal></goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>org.openjfx</groupId><artifactId>javafx-base</artifactId><version>${javafx.version}</version><classifier>linux</classifier>
+                  <outputDirectory>${project.build.outputDirectory}/javafx-libs/linux</outputDirectory><destFileName>javafx-base.jar</destFileName>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>org.openjfx</groupId><artifactId>javafx-graphics</artifactId><version>${javafx.version}</version><classifier>linux</classifier>
+                  <outputDirectory>${project.build.outputDirectory}/javafx-libs/linux</outputDirectory><destFileName>javafx-graphics.jar</destFileName>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>org.openjfx</groupId><artifactId>javafx-controls</artifactId><version>${javafx.version}</version><classifier>linux</classifier>
+                  <outputDirectory>${project.build.outputDirectory}/javafx-libs/linux</outputDirectory><destFileName>javafx-controls.jar</destFileName>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+          <execution>
+            <id>copy-javafx-linux-aarch64</id>
+            <phase>prepare-package</phase>
+            <goals><goal>copy</goal></goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>org.openjfx</groupId><artifactId>javafx-base</artifactId><version>${javafx.version}</version><classifier>linux-aarch64</classifier>
+                  <outputDirectory>${project.build.outputDirectory}/javafx-libs/linux-aarch64</outputDirectory><destFileName>javafx-base.jar</destFileName>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>org.openjfx</groupId><artifactId>javafx-graphics</artifactId><version>${javafx.version}</version><classifier>linux-aarch64</classifier>
+                  <outputDirectory>${project.build.outputDirectory}/javafx-libs/linux-aarch64</outputDirectory><destFileName>javafx-graphics.jar</destFileName>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>org.openjfx</groupId><artifactId>javafx-controls</artifactId><version>${javafx.version}</version><classifier>linux-aarch64</classifier>
+                  <outputDirectory>${project.build.outputDirectory}/javafx-libs/linux-aarch64</outputDirectory><destFileName>javafx-controls.jar</destFileName>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.4.2</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>letterfactory.Launcher</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.6.0</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <createDependencyReducedPom>false</createDependencyReducedPom>
+              <shadedArtifactAttached>true</shadedArtifactAttached>
+              <shadedClassifierName>all</shadedClassifierName>
+              <filters>
+                <filter>
+                  <artifact>org.openjfx:*</artifact>
+                  <excludes>
+                    <exclude>**</exclude>
+                  </excludes>
+                </filter>
+                <filter>
+                  <artifact>*:*</artifact>
+                  <excludes>
+                    <exclude>META-INF/*.SF</exclude>
+                    <exclude>META-INF/*.DSA</exclude>
+                    <exclude>META-INF/*.RSA</exclude>
+                  </excludes>
+                </filter>
+              </filters>
+              <transformers>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <mainClass>letterfactory.Launcher</mainClass>
+                </transformer>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                <!-- FOP/xmlgraphics ship overlapping SPI files; merge them so PNG/JPEG loaders work in the fat jar -->
+                <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                  <resource>META-INF/services/org.apache.xmlgraphics.image.loader.spi.ImagePreloader</resource>
+                </transformer>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                  <resource>META-INF/services/org.apache.xmlgraphics.image.loader.spi.ImageLoaderFactory</resource>
+                </transformer>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                  <resource>META-INF/services/org.apache.xmlgraphics.image.loader.spi.ImageConverter</resource>
+                </transformer>
+              </transformers>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Universal jar: copy the shaded all-platform jar into Out/ as the deliverable -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <id>copy-universal-jar</id>
+            <phase>package</phase>
+            <goals><goal>run</goal></goals>
+            <configuration>
+              <target>
+                <mkdir dir="${project.basedir}/Out"/>
+                <copy file="${project.build.directory}/${project.build.finalName}-all.jar"
+                      tofile="${project.basedir}/Out/LetterFactory.jar"
+                      overwrite="true"/>
+              </target>
+            </configuration>
+          </execution>
+
+          <!-- macOS app: a double-clickable LetterFactory.app bundling the universal jar -->
+          <execution>
+            <id>build-mac-app</id>
+            <phase>package</phase>
+            <goals><goal>run</goal></goals>
+            <configuration>
+              <target>
+                <delete dir="${project.basedir}/Out/LetterFactory.app"/>
+                <mkdir dir="${project.basedir}/Out/LetterFactory.app/Contents/MacOS"/>
+                <mkdir dir="${project.basedir}/Out/LetterFactory.app/Contents/Resources"/>
+                <copy file="${project.basedir}/Out/LetterFactory.jar"
+                      tofile="${project.basedir}/Out/LetterFactory.app/Contents/Resources/LetterFactory.jar"/>
+                <echo file="${project.basedir}/Out/LetterFactory.app/Contents/Info.plist"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>CFBundleDevelopmentRegion</key>
+  <string>en</string>
+  <key>CFBundleExecutable</key>
+  <string>LetterFactory</string>
+  <key>CFBundleIdentifier</key>
+  <string>com.user.letterfactory</string>
+  <key>CFBundleName</key>
+  <string>LetterFactory</string>
+  <key>CFBundleDisplayName</key>
+  <string>LetterFactory</string>
+  <key>CFBundlePackageType</key>
+  <string>APPL</string>
+  <key>CFBundleShortVersionString</key>
+  <string>1.0.0</string>
+  <key>CFBundleVersion</key>
+  <string>1.0.0</string>
+  <key>LSMinimumSystemVersion</key>
+  <string>11.0</string>
+  <key>NSHighResolutionCapable</key>
+  <true/>
+</dict>
+</plist>
+]]></echo>
+                <echo file="${project.basedir}/Out/LetterFactory.app/Contents/MacOS/LetterFactory"><![CDATA[#!/bin/bash
+DIR="$(cd "$(dirname "$0")/.." && pwd)"
+JH="$(/usr/libexec/java_home 2>/dev/null)"
+JAVA_BIN="$JH/bin/java"
+if [ ! -x "$JAVA_BIN" ]; then
+  JAVA_BIN="$(command -v java)"
+fi
+cd "$HOME"
+exec "$JAVA_BIN" -jar "$DIR/Resources/LetterFactory.jar" "$@"
+]]></echo>
+                <chmod file="${project.basedir}/Out/LetterFactory.app/Contents/MacOS/LetterFactory" perm="755"/>
+              </target>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Windows launcher: wrap the universal jar into a self-contained Out/LetterFactory.exe -->
+      <plugin>
+        <groupId>com.akathist.maven.plugins.launch4j</groupId>
+        <artifactId>launch4j-maven-plugin</artifactId>
+        <version>2.5.3</version>
+        <executions>
+          <execution>
+            <id>build-windows-exe</id>
+            <phase>package</phase>
+            <goals><goal>launch4j</goal></goals>
+            <configuration>
+              <headerType>gui</headerType>
+              <jar>${project.basedir}/Out/LetterFactory.jar</jar>
+              <outfile>${project.basedir}/Out/LetterFactory.exe</outfile>
+              <classPath>
+                <mainClass>letterfactory.Launcher</mainClass>
+              </classPath>
+              <jre>
+                <minVersion>21</minVersion>
+                <requiresJdk>false</requiresJdk>
+              </jre>
+              <versionInfo>
+                <fileVersion>1.0.0.0</fileVersion>
+                <txtFileVersion>1.0.0</txtFileVersion>
+                <fileDescription>LetterFactory</fileDescription>
+                <copyright>Ethan Silvio</copyright>
+                <productVersion>1.0.0.0</productVersion>
+                <txtProductVersion>1.0.0</txtProductVersion>
+                <productName>LetterFactory</productName>
+                <internalName>LetterFactory</internalName>
+                <originalFilename>LetterFactory.exe</originalFilename>
+              </versionInfo>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
