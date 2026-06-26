@@ -1,4 +1,12 @@
-# LetterFactory
+# LetteryFactoryV2
+
+.docx only
+Written in Rust, output is significantly Faster
+Java is not Required
+
+--------------
+
+# LetterFactoryV1
 
 Portable desktop app to generate personalized documents from a single `.docx` template using `[[Placeholders]]`, with optional bulk generation from Excel.
 
@@ -25,3 +33,4 @@ Portable desktop app to generate personalized documents from a single `.docx` te
 
 - Row 1 must contain placeholder headers **including brackets**, e.g. `[[Name]]`, `[[Date]]`
 - Each subsequent row generates one document
+-------------------------------------------------
