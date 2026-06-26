@@ -1,8 +1,8 @@
 # LetteryFactoryV2
 
-.docx only
-Written in Rust, output is significantly Faster
-Java is not Required
+-.docx only
+-Written in Rust, output is significantly Faster
+- Java is NOT Required
 
 --------------
 
