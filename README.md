@@ -1,12 +1,8 @@
 # LetteryFactoryV2
 
--.docx only
+-docx only
 -Written in Rust, output is significantly Faster
-- Java is NOT Required
-
---------------
-
-# LetterFactoryV1
+-Java is NOT Required
 
 Portable desktop app to generate personalized documents from a single `.docx` template using `[[Placeholders]]`, with optional bulk generation from Excel.
 
@@ -21,6 +17,15 @@ Portable desktop app to generate personalized documents from a single `.docx` te
 - **Single mode**: fill fields → export `.docx` / `.pdf` or print
 - **Bulk mode**: upload `.xlsx`, validate headers, generate many files, custom filenames, merge into one (`.docx` or `.pdf`)
 
+## Bulk Excel format
+
+- Row 1 must contain placeholder headers **including brackets**, e.g. `[[Name]]`, `[[Date]]`
+- Each subsequent row generates one document
+
+--------------
+
+# LetterFactoryV1
+
 ## Requirements
 
 - Java 21+ installed on the machine that runs the app (works through Java 26).
@@ -29,8 +34,5 @@ Portable desktop app to generate personalized documents from a single `.docx` te
 - `LetterFactory.jar` — universal, runs on any OS with `java -jar`
 - `LetterFactory.exe` — self-contained Windows launcher (built via Launch4j)
 
-## Bulk Excel format
 
-- Row 1 must contain placeholder headers **including brackets**, e.g. `[[Name]]`, `[[Date]]`
-- Each subsequent row generates one document
 -------------------------------------------------
