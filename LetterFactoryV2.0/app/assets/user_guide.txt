@@ -1,0 +1,34 @@
+LetterFactory 2.0
+
+Overview
+- Load a .docx template containing placeholders like [[Name]] or [[Date]].
+- LetterFactory detects the placeholders and creates input fields automatically.
+- Export a finished .docx document, or send it to your printer.
+
+Single Document Mode
+1) Click Template and select a .docx template (or drag and drop one onto the window).
+2) Fill in all detected placeholder fields.
+3) Select an output folder.
+4) Click Export to save a finished .docx, or Print.
+
+Note on Printing
+- Print fills the template and hands the .docx to your computer's default
+  document handler (for example, Microsoft Word) so you can print it. A program
+  capable of opening .docx files must be installed.
+
+Tip: Use Tab to quickly move to the next field.
+
+Bulk Mode
+1) Load a template and choose an output folder first.
+2) Click Bulk Mode and upload an Excel .xlsx file.
+3) Ensure Row 1 headers match placeholders exactly (including brackets), e.g. [[Name]].
+4) Select placeholders to build each output filename (optional).
+5) Optionally enable "Merge all into one file" to combine every document into a single .docx.
+6) Click Generate All.
+
+Notes
+- This app does not save any settings when it closes.
+- Placeholders are case-sensitive: [[Name]] and [[name]] are different.
+- Output is always .docx in this version.
+
+Developed by Ethan Silvio
