@@ -1,8 +1,9 @@
 # LetteryFactoryV2
 
--docx only
--Written in Rust, output is significantly Faster
--Java is NOT Required
+- docx only
+- Rewritten in Rust
+- Significantly Faster Output compared to V1 Verison
+- Java is no longer needed to run software
 
 Portable desktop app to generate personalized documents from a single `.docx` template using `[[Placeholders]]`, with optional bulk generation from Excel.
 
