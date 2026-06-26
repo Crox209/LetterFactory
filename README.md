@@ -7,7 +7,9 @@
 
 Portable desktop app to generate personalized documents from a single `.docx` template using `[[Placeholders]]`, with optional bulk generation from Excel.
 
--Go To Launchables Folder and Download either the .exe or .app for your os type
+## Download Instructions
+
+-Go To Launchables Folder and Download either the .exe or .app depending on your OS Type
 
 ## Features
 
