@@ -1,23 +1,15 @@
 # LetterFactoryV2.2
 
--Fixed Bulkmode Bugs that was giving issues with commas.
--New Example Template for .docx and excel file for Bulk Mode.
-
-# LetterFactoryV2
-
-- docx only
-- Rewritten in Rust
-- Significantly Faster Output compared to V1 Verison
-- Java is no longer needed to run software
-
-Portable desktop app to generate personalized documents from a single `.docx` template using `[[Placeholders]]`, with optional bulk generation from Excel.
-
+- Fixed Bulkmode Bugs that was giving issues with commas.
+- New Example Template for .docx and excel file for Bulk Mode.
+----------------------------
 ## Download Instructions
 
 -Go To Launchables Folder and Download either the .exe or .app depending on your OS Type
 
 ## Features
 
+- Portable desktop app to generate personalized documents from a single `.docx` template using `[[Placeholders]]`, with optional bulk generation from Excel.
 - **Template input**: load `.docx` templates only
 - **Placeholder detection**: scans for `[[...]]` placeholders (case-sensitive) across:
   - body paragraphs
@@ -32,6 +24,18 @@ Portable desktop app to generate personalized documents from a single `.docx` te
 - Row 1 must contain placeholder headers **including brackets**, e.g. `[[Name]]`, `[[Date]]`
 - Each subsequent row generates one document
 
+-----------
+## Previous Verisons:
+-----------
+
+# LetterFactoryV2
+
+- docx only
+- Rewritten in Rust
+- Significantly Faster Output compared to V1 Verison
+- Java is no longer needed to run software
+
+  
 --------------
 
 # LetterFactoryV1
