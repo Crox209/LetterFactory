@@ -1,0 +1,62 @@
+================================================================================
+                    		LETTERFACTORY V2.2
+================================================================================
+
+WHAT IS LETTERFACTORY?
+LetterFactory fills in Word (.docx) templates for you. Put placeholders like
+[[Name]] or [[Date]] in your template, and the app turns them into fill-in
+fields. Create one letter at a time, or generate hundreds from an Excel file with Bulk Mode.
+
+
+GETTING STARTED
+1. Open LetterFactory (double-click LetterFactory.app in the Launchables folder).
+2. Click the ? button in the top-right corner anytime for in-app help.
+
+
+PREPARING YOUR TEMPLATE
+- Use Microsoft Word (or any .docx editor) to create your letter Template.
+- Where you want text to be filled in, type placeholders in double brackets:
+    Example: Dear [[Name]], your appointment is on [[Date]].
+- Placeholders are case-sensitive: [[Name]] and [[name]] are different fields.
+- Save the file as a .docx (not .doc or .pdf).
+
+
+SINGLE DOCUMENT MODE (one letter at a time)
+1. Click Template and choose your .docx file
+   — or drag and drop the file onto the window.
+2. Fill in every field that appears in the main area.
+   Tip: Press Tab to jump to the next field quickly.
+3. Click Output Folder and choose where finished files should be saved.
+4. Click Export to save a filled .docx, or Print to open it for printing.
+
+   Print opens the filled document in your default Word app (e.g. Microsoft
+   Word) so you can print from there. You need a program that can open .docx
+   files.
+
+
+BULK MODE (many letters from Excel)
+Use this when you have a list of names, dates, or other data in a spreadsheet.
+
+1. Load a template and choose an Output Folder first (same as above).
+2. Click Bulk Mode.
+3. Click Upload Excel and select your .xlsx file
+   — or drag and drop the .xlsx file onto the Bulk Mode window.
+4. In your Excel file, Row 1 must be headers that match your placeholders
+   exactly, including the brackets. Example header: [[Name]]
+5. Each row below Row 1 becomes one document.
+6. (Optional) Under File Naming, check placeholders to build each filename.
+7. (Optional) Check "Merge all into one file" to combine every letter into
+   a single .docx instead of separate files.
+8. Click Generate All. Finished files appear in your output folder.
+
+
+HELPFUL TIPS
+- The app does not save your work or settings when you close it.
+- Do not use temporary Word lock files (names starting with ~$) as templates.
+- Exported files are always .docx format.
+- If no placeholders are found, add [[brackets]] to your template and reload.
+
+
+Developed by Ethan Silvio
+
+Github Repo: https://github.com/Crox209/LetterFactory

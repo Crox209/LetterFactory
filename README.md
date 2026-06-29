@@ -1,4 +1,9 @@
-# LetteryFactoryV2
+# LetterFactoryV2.2
+
+-Fixed Bulkmode Bugs that was giving issues with commas.
+-New Example Template for .docx and excel file for Bulk Mode.
+
+# LetterFactoryV2
 
 - docx only
 - Rewritten in Rust

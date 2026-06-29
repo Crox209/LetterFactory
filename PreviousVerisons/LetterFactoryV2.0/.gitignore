@@ -1,0 +1,7 @@
+target/
+.idea/
+*.iml
+.DS_Store
+
+# Build deliverables (uploaded manually, not committed)
+Out/
